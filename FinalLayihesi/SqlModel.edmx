@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="info" Type="ntext" Nullable="false" />
+          <Property Name="adminsInfo_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminsInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="image_Id" Type="int" Nullable="false" />
+          <Property Name="education" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="headText" Type="nvarchar" MaxLength="250" />
+          <Property Name="contentText" Type="ntext" />
+          <Property Name="addDate" Type="datetime" />
+          <Property Name="cityID" Type="int" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="imageID" Type="int" />
+          <Property Name="likeID" Type="int" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CiteContact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="content" Type="ntext" Nullable="false" />
+          <Property Name="comment_Date" Type="datetime" Nullable="false" />
+          <Property Name="user_ID" Type="int" Nullable="false" />
+          <Property Name="advice_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Follow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="followerID" Type="int" />
+          <Property Name="followersID" Type="int" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="İmage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <EntityType Name="socialContactLinks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fbLink" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="tvitLink" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="instaLink" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="gmailLink" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="about" Type="ntext" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="socialContactID" Type="int" Nullable="false" />
+          <Property Name="userTypeID" Type="int" Nullable="false" />
+          <Property Name="coverImage" Type="ntext" Nullable="false" />
+          <Property Name="genderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_About_AdminsInfo">
+          <End Role="AdminsInfo" Type="Self.AdminsInfo" Multiplicity="1" />
+          <End Role="About" Type="Self.About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminsInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="adminsInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminsInfo_İmage">
+          <End Role="İmage" Type="Self.İmage" Multiplicity="1" />
+          <End Role="AdminsInfo" Type="Self.AdminsInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="İmage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AdminsInfo">
+              <PropertyRef Name="image_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_Category1">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="cityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_İmage1">
+          <End Role="İmage" Type="Self.İmage" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="İmage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="imageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_Like1">
+          <End Role="Like" Type="Self.Like" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Like">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="likeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Advice">
+          <End Role="Advice" Type="Self.Advice" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="advice_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="user_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Follow_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="followerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Follow_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="followersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Like_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="genderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_socialContactLinks1">
+          <End Role="socialContactLinks" Type="Self.socialContactLinks" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="socialContactLinks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="socialContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_userType1">
+          <End Role="userType" Type="Self.userType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="userTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalProjectModelStoreContainer">
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminsInfo" EntityType="Self.AdminsInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advice" EntityType="Self.Advice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CiteContact" EntityType="Self.CiteContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="İmage" EntityType="Self.İmage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socialContactLinks" EntityType="Self.socialContactLinks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userType" EntityType="Self.userType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_About_AdminsInfo" Association="Self.FK_About_AdminsInfo">
+            <End Role="AdminsInfo" EntitySet="AdminsInfo" />
+            <End Role="About" EntitySet="About" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminsInfo_İmage" Association="Self.FK_AdminsInfo_İmage">
+            <End Role="İmage" EntitySet="İmage" />
+            <End Role="AdminsInfo" EntitySet="AdminsInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_Category1" Association="Self.FK_Advice_Category1">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Advice" EntitySet="Advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_City" Association="Self.FK_Advice_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Advice" EntitySet="Advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_İmage1" Association="Self.FK_Advice_İmage1">
+            <End Role="İmage" EntitySet="İmage" />
+            <End Role="Advice" EntitySet="Advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_Like1" Association="Self.FK_Advice_Like1">
+            <End Role="Like" EntitySet="Like" />
+            <End Role="Advice" EntitySet="Advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_User1" Association="Self.FK_Advice_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Advice" EntitySet="Advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Advice" Association="Self.FK_Comment_Advice">
+            <End Role="Advice" EntitySet="Advice" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Follow_User" Association="Self.FK_Follow_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Follow_User1" Association="Self.FK_Follow_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Like_User1" Association="Self.FK_Like_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Like" EntitySet="Like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_socialContactLinks1" Association="Self.FK_User_socialContactLinks1">
+            <End Role="socialContactLinks" EntitySet="socialContactLinks" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_userType1" Association="Self.FK_User_userType1">
+            <End Role="userType" EntitySet="userType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adminsInfo_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdminsInfo" Relationship="Self.FK_About_AdminsInfo" FromRole="About" ToRole="AdminsInfo" />
+        </EntityType>
+        <EntityType Name="AdminsInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_Id" Type="Int32" Nullable="false" />
+          <Property Name="education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Abouts" Relationship="Self.FK_About_AdminsInfo" FromRole="AdminsInfo" ToRole="About" />
+          <NavigationProperty Name="İmage" Relationship="Self.FK_AdminsInfo_İmage" FromRole="AdminsInfo" ToRole="İmage" />
+        </EntityType>
+        <EntityType Name="Advice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="headText" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="contentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="addDate" Type="DateTime" Precision="3" />
+          <Property Name="cityID" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="imageID" Type="Int32" />
+          <Property Name="likeID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Advice_Category1" FromRole="Advice" ToRole="Category" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Advice_City" FromRole="Advice" ToRole="City" />
+          <NavigationProperty Name="İmage" Relationship="Self.FK_Advice_İmage1" FromRole="Advice" ToRole="İmage" />
+          <NavigationProperty Name="Like" Relationship="Self.FK_Advice_Like1" FromRole="Advice" ToRole="Like" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Advice_User1" FromRole="Advice" ToRole="User" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Advice" FromRole="Advice" ToRole="Comment" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Advices" Relationship="Self.FK_Advice_Category1" FromRole="Category" ToRole="Advice" />
+        </EntityType>
+        <EntityType Name="CiteContact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advices" Relationship="Self.FK_Advice_City" FromRole="City" ToRole="Advice" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_ID" Type="Int32" Nullable="false" />
+          <Property Name="advice_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advice" Relationship="Self.FK_Comment_Advice" FromRole="Comment" ToRole="Advice" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Comment_User" FromRole="Comment" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Follow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="followerID" Type="Int32" />
+          <Property Name="followersID" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Follow_User" FromRole="Follow" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Follow_User1" FromRole="Follow" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Gender" FromRole="Gender" ToRole="User" />
+        </EntityType>
+        <EntityType Name="İmage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AdminsInfoes" Relationship="Self.FK_AdminsInfo_İmage" FromRole="İmage" ToRole="AdminsInfo" />
+          <NavigationProperty Name="Advices" Relationship="Self.FK_Advice_İmage1" FromRole="İmage" ToRole="Advice" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="Advices" Relationship="Self.FK_Advice_Like1" FromRole="Like" ToRole="Advice" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Like_User1" FromRole="Like" ToRole="User" />
+        </EntityType>
+        <EntityType Name="socialContactLink">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fbLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tvitLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="instaLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gmailLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_socialContactLinks1" FromRole="socialContactLinks" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="socialContactID" Type="Int32" Nullable="false" />
+          <Property Name="userTypeID" Type="Int32" Nullable="false" />
+          <Property Name="coverImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="genderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advices" Relationship="Self.FK_Advice_User1" FromRole="User" ToRole="Advice" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_User" FromRole="User" ToRole="Comment" />
+          <NavigationProperty Name="Follows" Relationship="Self.FK_Follow_User" FromRole="User" ToRole="Follow" />
+          <NavigationProperty Name="Follows1" Relationship="Self.FK_Follow_User1" FromRole="User" ToRole="Follow" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
+          <NavigationProperty Name="Likes" Relationship="Self.FK_Like_User1" FromRole="User" ToRole="Like" />
+          <NavigationProperty Name="socialContactLink" Relationship="Self.FK_User_socialContactLinks1" FromRole="User" ToRole="socialContactLinks" />
+          <NavigationProperty Name="userType" Relationship="Self.FK_User_userType1" FromRole="User" ToRole="userType" />
+        </EntityType>
+        <EntityType Name="userType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_userType1" FromRole="userType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_About_AdminsInfo">
+          <End Role="AdminsInfo" Type="Self.AdminsInfo" Multiplicity="1" />
+          <End Role="About" Type="Self.About" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminsInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="About">
+              <PropertyRef Name="adminsInfo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminsInfo_İmage">
+          <End Role="İmage" Type="Self.İmage" Multiplicity="1" />
+          <End Role="AdminsInfo" Type="Self.AdminsInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="İmage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AdminsInfo">
+              <PropertyRef Name="image_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_Category1">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="cityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_İmage1">
+          <End Role="İmage" Type="Self.İmage" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="İmage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="imageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_Like1">
+          <End Role="Like" Type="Self.Like" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Like">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="likeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advice_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Advice" Type="Self.Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Advice">
+          <End Role="Advice" Type="Self.Advice" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="advice_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="user_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Follow_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="followerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Follow_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="followersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="genderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Like_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_socialContactLinks1">
+          <End Role="socialContactLinks" Type="Self.socialContactLink" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="socialContactLinks">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="socialContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_userType1">
+          <End Role="userType" Type="Self.userType" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="userTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="AdminsInfoes" EntityType="Self.AdminsInfo" />
+          <EntitySet Name="Advices" EntityType="Self.Advice" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CiteContacts" EntityType="Self.CiteContact" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Follows" EntityType="Self.Follow" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="İmage" EntityType="Self.İmage" />
+          <EntitySet Name="Likes" EntityType="Self.Like" />
+          <EntitySet Name="socialContactLinks" EntityType="Self.socialContactLink" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="userTypes" EntityType="Self.userType" />
+          <AssociationSet Name="FK_About_AdminsInfo" Association="Self.FK_About_AdminsInfo">
+            <End Role="AdminsInfo" EntitySet="AdminsInfoes" />
+            <End Role="About" EntitySet="Abouts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminsInfo_İmage" Association="Self.FK_AdminsInfo_İmage">
+            <End Role="İmage" EntitySet="İmage" />
+            <End Role="AdminsInfo" EntitySet="AdminsInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_Category1" Association="Self.FK_Advice_Category1">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_City" Association="Self.FK_Advice_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_İmage1" Association="Self.FK_Advice_İmage1">
+            <End Role="İmage" EntitySet="İmage" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_Like1" Association="Self.FK_Advice_Like1">
+            <End Role="Like" EntitySet="Likes" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advice_User1" Association="Self.FK_Advice_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Advice" Association="Self.FK_Comment_Advice">
+            <End Role="Advice" EntitySet="Advices" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Follow_User" Association="Self.FK_Follow_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Follow" EntitySet="Follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Follow_User1" Association="Self.FK_Follow_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Follow" EntitySet="Follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Like_User1" Association="Self.FK_Like_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Like" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_socialContactLinks1" Association="Self.FK_User_socialContactLinks1">
+            <End Role="socialContactLinks" EntitySet="socialContactLinks" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_userType1" Association="Self.FK_User_userType1">
+            <End Role="userType" EntitySet="userTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="FinalProjectModel.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="adminsInfo_ID" ColumnName="adminsInfo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminsInfoes">
+            <EntityTypeMapping TypeName="FinalProjectModel.AdminsInfo">
+              <MappingFragment StoreEntitySet="AdminsInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="image_Id" ColumnName="image_Id" />
+                <ScalarProperty Name="education" ColumnName="education" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advices">
+            <EntityTypeMapping TypeName="FinalProjectModel.Advice">
+              <MappingFragment StoreEntitySet="Advice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="headText" ColumnName="headText" />
+                <ScalarProperty Name="contentText" ColumnName="contentText" />
+                <ScalarProperty Name="addDate" ColumnName="addDate" />
+                <ScalarProperty Name="cityID" ColumnName="cityID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="imageID" ColumnName="imageID" />
+                <ScalarProperty Name="likeID" ColumnName="likeID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="FinalProjectModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CiteContacts">
+            <EntityTypeMapping TypeName="FinalProjectModel.CiteContact">
+              <MappingFragment StoreEntitySet="CiteContact">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="FinalProjectModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="FinalProjectModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="comment_Date" ColumnName="comment_Date" />
+                <ScalarProperty Name="user_ID" ColumnName="user_ID" />
+                <ScalarProperty Name="advice_ID" ColumnName="advice_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Follows">
+            <EntityTypeMapping TypeName="FinalProjectModel.Follow">
+              <MappingFragment StoreEntitySet="Follow">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="followerID" ColumnName="followerID" />
+                <ScalarProperty Name="followersID" ColumnName="followersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="FinalProjectModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="İmage">
+            <EntityTypeMapping TypeName="FinalProjectModel.İmage">
+              <MappingFragment StoreEntitySet="İmage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Likes">
+            <EntityTypeMapping TypeName="FinalProjectModel.Like">
+              <MappingFragment StoreEntitySet="Like">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socialContactLinks">
+            <EntityTypeMapping TypeName="FinalProjectModel.socialContactLink">
+              <MappingFragment StoreEntitySet="socialContactLinks">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fbLink" ColumnName="fbLink" />
+                <ScalarProperty Name="tvitLink" ColumnName="tvitLink" />
+                <ScalarProperty Name="instaLink" ColumnName="instaLink" />
+                <ScalarProperty Name="gmailLink" ColumnName="gmailLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FinalProjectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FinalProjectModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="socialContactID" ColumnName="socialContactID" />
+                <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+                <ScalarProperty Name="coverImage" ColumnName="coverImage" />
+                <ScalarProperty Name="genderID" ColumnName="genderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTypes">
+            <EntityTypeMapping TypeName="FinalProjectModel.userType">
+              <MappingFragment StoreEntitySet="userType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
